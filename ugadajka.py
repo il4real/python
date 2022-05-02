@@ -6,21 +6,24 @@ name = input('Введите Ваше имя: ')
 
 
 def is_valid(num):
-    if int(num) in range(1, 101):
-        return int(num)
-    else:
+    if not num.isdigit():
+        print('Нужно ввести (неотрицательное) ЧИСЛО!')
+        return False
+    if num.isdigit() and 1 <= int(num) <= 100:
+        return num
+    if num.isdigit() and int(num) not in range(1, 101):
+        print('Число в диапазоне от 1 до 100!')
         return False
 
 
 while True:
-    guess = int(input(f'Уважаемый(ая) {name}, Введите число от 1 до 100: '))
-    if is_valid(guess) is False:
-        print('not in range, once more')
+    guess = input(f'Уважаемый(ая) {name}, Введите число от 1 до 100: ')
+    if is_valid(str(guess)) is False:
         continue
-    if guess > a:
+    elif int(guess) > a:
         print('Слишком МНОГО, попробуйте еще раз!')
-    elif guess < a:
+    elif int(guess) < a:
         print('Слишком мало, давайте еще разок!')
-    else:
+    elif int(guess) == a:
         print('Вы угадали, поздравляем!')
         break
