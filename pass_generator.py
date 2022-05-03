@@ -5,7 +5,6 @@ lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 punctuation = '!#$%&*+-=?@^_'
 chars = ''
-ambig = 'il1Lo0O'
 
 pass_q = input('How many passwords do you need? Please enter number: ')
 passlen = input('Enter password length in numbers. (For example: 5): ')
@@ -27,10 +26,10 @@ if pass_ambig == 'y':
 
 def generate_password(length, char):
     new_pass = ''
-    for i in range(int(passlen)):
-        new_pass += random.choice(chars)
+    for _ in range(length):
+        new_pass += random.choice(char)
     return new_pass
 
 
-for i in range(int(pass_q)):
-    print(generate_password(passlen, chars))
+for _ in range(int(pass_q)):
+    print(generate_password(int(passlen), chars))
